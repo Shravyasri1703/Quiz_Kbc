@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
 import Trivia from "./components/components"
 import Timer from "./components/Timer"
-import Start from "./components/Start"
+import Start from "./components/Start" 
 
 function App() {
   const [userName,setUserName] = useState(null)
@@ -99,20 +99,20 @@ function App() {
    
 
    useEffect(()=>{
-       questionNumber > 1 && setEarned(moneyPyramid.find(m=> m.id === questionNumber-1).amount)
-   },[moneyPyramid,questionNumber])
+       questionNumber > 1 && setEarned(moneyPyramid.find( ( m )=> m.id === questionNumber-1).amount)
+   },[questionNumber,moneyPyramid])
 {/*"moneyListItem active:bg-yellow-500 active:text-yellow-950 p-1 active:rounded-3xl"*/}
   return (
     <>
      <h1 className='font-extrabold text-3xl sm:text-5xl  text-center p-4 text-yellow-400 mb-2'>Quiz App</h1>
 
      <div className="app flex flex-row p-3">
-      {userName ? (<>
+      {!userName ? (<Start setUserName={setUserName}/>):(<>
         <div className="main font-bold text-yellow-500  w-3/4 bg-gradient-to-r from-indigo-950 via-indigo-800 to-indigo-900 p-2 mr-2 rounded-md shadow-2xl text-center">
-       {stop ?( <h1>You Earned : {earned}</h1>) : (
+       {timeOut ?( <h1>You Earned : {earned}</h1>) : (
         <>
         <div className="top h-1/5 flex justify-center text-center p-3">
-          <div className="font-bold text-xl text-indigo-950  h-[1.5cm] w-[1.5cm] rounded-full border-4 border-indigo-200 items-center felx justify-center pt-2"><Timer setStop={setStop} questionNumber={questionNumber}/></div>
+          <div className="font-bold text-xl text-indigo-950  h-[1.5cm] w-[1.5cm] rounded-full border-4 border-indigo-200 items-center felx justify-center pt-2"><Timer setTimeout={setTimeout} questionNumber={questionNumber}/></div>
         </div>
         <div className="bottom h-1/2"><Trivia data={data} setTimeout={setTimeout} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/></div>
         </>)}
@@ -135,7 +135,7 @@ function App() {
         </ul>
       </div>
       
-      </>) : <Start setUserName={setUserName}/>}
+      </>)  }
       
 
 

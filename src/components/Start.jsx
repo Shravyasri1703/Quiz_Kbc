@@ -1,7 +1,7 @@
 import { useRef } from "react"
 
 
-function Start({setUsername}){
+function Start({ setUsername }){
     const inputRef = useRef()
 
     const handleClick = ()=>{
