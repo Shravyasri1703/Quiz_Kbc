@@ -13,7 +13,7 @@ function Start({setUsername}){
         <div className="start">
 
             <input placeholder="Enter Your Name" className="startInput" ref={inputRef}/>
-            <button className="startButton" onClick={handleClick}>Start</button>
+            <button className="startButton bg-gradient-to-r from-blue-800 via-blue-500 to-blue-800 font-mono text-yellow-300 shadow-2xl rounded-xl" onClick={handleClick}>Start</button>
         </div>
         
         </>
